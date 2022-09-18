@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset=utf-8"UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color" content="#3367D6"/>
+  <link rel="apple-touch-icon" href="/icons-192.png">
+  <link rel="manifest" href="/manifest.json">
+  
+  <meta name="generator" content="Hexo 5.4.0">
+
+  
+    <meta name="description" content="redcnhack，一个死宅的个人自留地，基于hexo的个人博客。随便写写，分享生活，文笔不好，欢迎吐槽！">
+  
+
+  
+    <meta name="keywords" content="我在这里 redcnhack 鹿角 个人博客 自留地 死宅 hexo flex-block">
+  
+
+  
+    <meta name="author" content="redcnhack">
+  
+
+  
+
+  
+
+  <title>flex-block改动说明 | redcnhack</title>
+
+  
+
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+
+  
+    <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/typeface-source-code-pro@1.1.3/index.min.css" tppabs="https://cdn.jsdelivr.net/npm/typeface-source-code-pro@1.1.3/index.min.css">
+    <link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/monokai.css" tppabs="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/monokai.css">
+  
+
+  
+<link rel="stylesheet" href="../../css/style.css" tppabs="https://kyori.xyz/css/style.css">
+
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" tppabs="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="../../../cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css" tppabs="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --></head>
+<body>
+  <div class="root-container">
+    
+<!-- header container -->
+<header class="header-container post">
+  
+    <div class="post-image" style="background-image: url(https://cloud.miiiku.xyz/src/images/cover/cover-06.jpg-webp)"></div>
+  
+
+  <!-- navbar -->
+<nav class="navbar">
+  <div class="navbar-content">
+    <!-- logo -->
+    <div class="navbar-logo">
+      <a href="../../index.htm" tppabs="https://kyori.xyz/">
+        
+          redcnhack
+        
+      </a>
+    </div>
+    <!-- link -->
+    <div class="navbar-link">
+      <div class="navbar-btn">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <ul class="navbar-list">
+        
+          <li class="navbar-list-item"><a href="../../index.htm" tppabs="https://kyori.xyz/">首页</a></li>
+        
+          <li class="navbar-list-item"><a href="../../links.htm" tppabs="https://kyori.xyz/links">友链</a></li>
+        
+          <li class="navbar-list-item"><a href="../../about.htm" tppabs="https://kyori.xyz/about">关于</a></li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+  
+    <div class="header-content">
+      <div class="post-text layout-block">
+        <div class="layout-margin">
+          <h1 class="title-wrap">flex-block改动说明</h1>
+          <h2 class="title-sub-wrap">
+            <strong>redcnhack</strong>
+            <span>发布于</span>
+            <time  class="article-date" datetime="2021-07-08T09:20:10.000Z" itemprop="datePublished">2021-07-08</time>
+          </h2>
+          <ul class="wrap-list dark">
+  
+    <li><a href="../../categories/doc/index.htm" tppabs="https://kyori.xyz/categories/doc/">📒 doc</a></li>
+  
+</ul>
+          <ul class="wrap-list dark">
+  
+    <li><a href="../../tags/doc/index.htm" tppabs="https://kyori.xyz/tags/doc/">🏷️ doc</a></li>
+  
+    <li><a href="../../tags/flex-block/index.htm" tppabs="https://kyori.xyz/tags/flex-block/">🏷️ flex-block</a></li>
+  
+</ul>
+        </div>
+      </div>
+    </div>
+  
+
+  
+  
+  
+</header>
+
+    <!-- 文章 -->
+
+<!-- 文章内容 -->
+<div class="body-container">
+  <article class="content-container layout-block post-container">
+    <div class="article-info">
+      
+      
+      
+      
+      <section class="article-entry markdown-body layout-margin content-padding--large soft-size--large soft-style--box">
+        <h2 id="📢-概览"><a href="#📢-概览" class="headerlink" title="📢 概览"></a>📢 概览</h2><p>前段时间在完成了我开发的<code>HUGO</code>主题<a target="_blank" rel="noopener" href="javascript:if(confirm('https://github.com/miiiku/hugo-theme-kagome  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ������·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ�����?'))window.location='https://github.com/miiiku/hugo-theme-kagome'" tppabs="https://github.com/miiiku/hugo-theme-kagome">Kagome</a>以后，回头来看<code>flex-block</code>主题</p>
+<p>发现有很多可以改进的地方，代码也可以在更一步优化，所以给<code>flex-block</code>做了一定的重构。</p>
+<p><strong>⚠️⚠️⚠️ 本次重构属于破坏性升级，如果你在用flex-block并更新到当前版本，请仔细阅读下方内容查看改动项，如果你是第一次使用查看相关文档即可</strong></p>
+<h2 id="📢-删除项"><a href="#📢-删除项" class="headerlink" title="📢 删除项"></a>📢 删除项</h2><p><code>theme/_config.yml</code>以下这些属性，功能被移除: </p>
+<ul>
+<li><p>large_legnth (原作用来时设置文章列表页文章的宽度权重，现在取消这个字段改为通过文章名称自适应)</p>
+</li>
+<li><p>hitokoto (文章底部一言， 已删除)</p>
+</li>
+<li><p>waterfall (图片布局插件，因为内容页改成了双栏布局，不太适合放过多的横项瀑布流，所以删除并精简功能)</p>
+</li>
+<li><p>zoom (图片点击放大插件，这个插件自己开发的，感觉还是有点问题，在一些高清大图点击查看的时候会有卡顿问题，优化以后看要不要在添加进来)</p>
+</li>
+</ul>
+<p><code>内建写作标签</code>以下这些标签被移除: </p>
+<p><strong>太多的自定义内建标签就意味着以后迁移存在这大量的不兼容，所以删除了一些使用度不是很多的内建标签</strong></p>
+<ul>
+<li><p>meme (原作用是插入一张行内图片，如表情包等，先优化精简代码，已删除)</p>
+</li>
+<li><p>bookmark (书签，优化精简代码，已删除)</p>
+</li>
+<li><p>waterfall (瀑布流插件，优化精简代码，已删除，以后可能会考虑出一个优化版本的)</p>
+</li>
+<li><p>center (原作用是内容剧中，优化精简代码，已删除)</p>
+</li>
+</ul>
+<h2 id="📢-添加项"><a href="#📢-添加项" class="headerlink" title="📢 添加项"></a>📢 添加项</h2><p><code>theme/_config.yml</code>添加已下字段:</p>
+<ul>
+<li><p>notice (站点通知，一句话，不支持插入图片等，没有则不显示，有的话会在内容页的右侧显示)</p>
+</li>
+<li><p>author (站长/作者 信息，没有则不显示，有的话会在内容页的右侧显示)</p>
+</li>
+<li><p>toc (TOC相关设置)</p>
+</li>
+</ul>
+<h2 id="📢-一些使用变化"><a href="#📢-一些使用变化" class="headerlink" title="📢 一些使用变化"></a>📢 一些使用变化</h2><h3 id="aplayer-amp-dplayer使用变化"><a href="#aplayer-amp-dplayer使用变化" class="headerlink" title="aplayer&amp;dplayer使用变化:"></a>aplayer&amp;dplayer使用变化:</h3><p>如果你要在某一篇文章内插入<code>aplayer</code>或者<code>dplayer</code>，那么你需要在文章MD文件<code>Front-matter</code>中添加<code>aplayer: true</code>或者<code>dplayer: true</code>。</p>
+<p>这样的目的是在不需要插入这些内容的页面减少资源加载和请求。</p>
+<p>并且目前已只一个问题: 在使用<code>aplayer</code>时，TOC锚点相关功能无法正常使用，需要注意，具体可查看<a target="_blank" rel="noopener" href="javascript:if(confirm('https://github.com/miiiku/flex-block/issues/8  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ������·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ�����?'))window.location='https://github.com/miiiku/flex-block/issues/8'" tppabs="https://github.com/miiiku/flex-block/issues/8">#8</a></p>
+<h3 id="config-yml中留言部分变化"><a href="#config-yml中留言部分变化" class="headerlink" title="_config.yml中留言部分变化:"></a>_config.yml中留言部分变化:</h3><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">comments:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">use:</span> <span class="hljs-string">&#x27;valine&#x27;</span> <span class="hljs-comment"># valine || disqus</span><br>  <span class="hljs-comment"># valine 评论</span><br>  <span class="hljs-comment"># docs: https://valine.js.org</span><br>  <span class="hljs-comment"># You can get your appid and appkey from https://leancloud.cn</span><br>  <span class="hljs-comment"># 这里appId和appKey一定一定要改成自己的，没有的话去https://leancloud.cn这个网站注册创建一个</span><br>  <span class="hljs-attr">valine:</span><br>    <span class="hljs-attr">appId:</span><br>    <span class="hljs-attr">appKey:</span><br>    <span class="hljs-attr">avatar:</span> <span class="hljs-string">mm</span><br>    <span class="hljs-attr">placeholder:</span> <span class="hljs-string">随便说点什么叭～</span><br>    <span class="hljs-attr">notify:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">visitor:</span> <span class="hljs-literal">true</span><br>    <span class="hljs-attr">pageSize:</span> <span class="hljs-number">10</span><br>  <span class="hljs-comment"># disqus 评论</span><br>  <span class="hljs-comment"># docs: https://disqus.com/</span><br>  <span class="hljs-attr">disqus:</span><br>    <span class="hljs-attr">website:</span><br>    <span class="hljs-attr">error:</span> <span class="hljs-string">如果你看不到评论，那么就真的看不到评论</span> <span class="hljs-string">w(゜Д゜)w</span><br></code></pre></td></tr></table></figure>
+
+<p><code>valine</code>和<code>disqus</code>被放在了<code>comments</code>下面，使用<code>enable</code>来全局控制站点是否开启评论系统，使用<code>use</code>来选择使用某一个评论系统，但是需要注意的是在文章md里<code>Front-matter</code>中的<code>comments</code>优先级最高。</p>
+<p>比如全站关闭评论，但是在某一篇文章里想打开评论，则可以在<code>Front-matter</code>中设置<code>comments: true</code></p>
+<h3 id="social-icon-修改"><a href="#social-icon-修改" class="headerlink" title="social_icon 修改"></a>social_icon 修改</h3><p>目前social只保留了如下的这些做了精简且写法跟以前有所不同: </p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-comment"># Social Icon</span><br><span class="hljs-attr">social_icon:</span><br>  <span class="hljs-attr">enable:</span> <span class="hljs-literal">true</span><br>  <span class="hljs-attr">icons:</span><br>    <span class="hljs-attr">ins     :</span><br>    <span class="hljs-attr">zhihu   :</span><br>    <span class="hljs-attr">weibo   :</span> <span class="hljs-string">https://twitter.com/guanquanhong</span><br>    <span class="hljs-attr">github  :</span> <span class="hljs-string">https://github.com/miiiku/</span><br>    <span class="hljs-attr">twitter :</span> <span class="hljs-string">https://twitter.com/guanquanhong</span><br></code></pre></td></tr></table></figure>
+
+<p>如果要自定义新增图标，在<code>theme/layout/_svg/</code>中添加以<code>social-</code>开头的svg图标并在yml配置文件中编辑即可。</p>
+<h2 id="📢-其他"><a href="#📢-其他" class="headerlink" title="📢 其他"></a>📢 其他</h2><ul>
+<li><p>修复主题切换失败的BUG</p>
+</li>
+<li><p>card背景图添加了图片懒加载</p>
+</li>
+<li><p>内容页改成双栏布局，右侧添加widget小部件，页面样式更改</p>
+</li>
+<li><p>代码重构&amp;优化</p>
+</li>
+</ul>
+
+      </section>
+
+      
+      
+        <nav class="article-nav">
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+      <div class="card-cover" background-image-lazy data-img="https://cloud.miiiku.xyz/src/images/cover/cover-02.jpg-webp"></div>
+    
+    <div class="card-text">
+      
+        <a href="081010.html" tppabs="https://kyori.xyz/2021/07/081010.html" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">插入图片，音频和视频</h2>
+        </a>
+      
+      <div class="card-text--row">Newer</div>
+    </div>
+  </article>
+</div>
+          
+          
+            <div class="article-nav-item layout-padding">
+  <article class="card-container article-nav-card content-padding--primary soft-size--large soft-style--box">
+    
+    <div class="card-text">
+      
+        <a href="../../2019/07/251643.html" tppabs="https://kyori.xyz/2019/07/251643.html" itemprop="url">
+          <h2 class="card-text--title text-ellipsis">Code Highlight Style test</h2>
+        </a>
+      
+      <div class="card-text--row">Older</div>
+    </div>
+  </article>
+</div>
+          
+        </nav>
+      
+
+      <section class="page-message-container layout-padding">
+        
+
+
+  
+  
+
+  
+  
+
+
+      </section>
+    </div>
+    <div class="widget-info">
+      <section class="widget-author widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-body">
+    
+      <img src="../../../s.gravatar.com/avatar/2d6b803eea37de0257620d5fabee7e64-s=200&r=g&d=retro" tppabs="https://s.gravatar.com/avatar/2d6b803eea37de0257620d5fabee7e64?s=200&r=g&d=retro" class="soft-size--round soft-style--box" alt="Sukoshi">
+    
+    
+      <h2>redcnhack</h2>
+    
+    
+      <p>贵在坚持</p>
+    
+
+    <div class="count-box">
+      <div class="count-box--item">
+        <svg class="icon icon-article" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M240.51564747 647.74217627h196.07203239c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806V165.10332731c0-33.18142087-30.16492806-60.32985613-60.32985612-60.32985611H245.04038668C225.43318342 104.7734712 210.35071939 119.85593522 210.35071939 139.46313845V617.57724821c0 16.59071043 13.57421762 30.16492806 30.16492808 30.16492806z m663.62841731-452.47392089v482.63884894c0 33.18142087-27.14843525 60.32985613-60.32985612 60.32985613H180.18579134c-33.18142087 0-60.32985613-27.14843525-60.32985612-60.32985613V195.26825538c-49.77213131 0-90.49478418 40.72265287-90.49478417 90.49478417v452.4739209c0 49.77213131 40.72265287 90.49478418 90.49478417 90.49478417h286.56681657c16.59071043 0 30.16492806 13.57421762 30.16492807 30.16492807s13.57421762 30.16492806 30.16492805 30.16492806h90.49478418c16.59071043 0 30.16492806-13.57421762 30.16492805-30.16492806s13.57421762-30.16492806 30.16492807-30.16492807h286.56681657c49.77213131 0 90.49478418-40.72265287 90.49478417-90.49478417V285.76303955c0-49.77213131-40.72265287-90.49478418-90.49478417-90.49478417zM587.41232014 647.74217627h191.54729318c19.60720323 0 34.68966726-15.08246403 34.68966729-34.68966727V134.93839925c0-16.59071043-13.57421762-30.16492806-30.16492808-30.16492805H617.57724821c-30.16492806 0-60.32985613 27.14843525-60.32985612 60.32985611v452.4739209c0 16.59071043 13.57421762 30.16492806 30.16492805 30.16492806z" fill="currentColor"></path>
+</svg>
+        <span>21</span>
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+        4
+      </div>
+      <div class="count-box--item">
+        <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+        5
+      </div>
+    </div>
+  </div>
+</section>
+
+      
+<section class="widget-toc widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-toc" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M134.50666666 767.46666668H460.8c27.73333333 0 50.24000001 22.50666668 50.24000001 50.23999999v50.13333333c0 27.73333333-22.50666668 50.24000001-50.24000001 50.24000001H134.50666666c-27.73333333 0-50.24000001-22.50666668-50.23999999-50.24000001v-50.13333333c0.10666668-27.73333333 22.50666668-50.24000001 50.24000001-50.24000001zM84.37333332 541.65333333h326.18666669c27.73333333 0 50.24000001 22.39999999 50.23999999 50.13333334v50.24000001c0 27.73333333-22.50666668 50.24000001-50.24000002 50.23999999H84.37333332c-27.73333333 0-50.24000001-22.50666668-50.23999999-50.23999999v-50.24000001c0-27.73333333 22.50666668-50.13333334 50.24000001-50.13333334zM134.50666666 315.83999999H460.8c27.73333333 0 50.24000001 22.50666668 50.24000001 50.24000001v50.24000001c0 27.73333333-22.50666668 50.13333334-50.24000001 50.13333333H134.50666666c-27.73333333 0-50.24000001-22.39999999-50.23999999-50.13333333v-50.24000001c0.10666668-27.84000001 22.50666668-50.24000001 50.24000001-50.23999999zM209.81333332 89.91999999h326.18666671c27.73333333 0 50.24000001 22.39999999 50.23999997 50.13333335v50.23999999c0 27.73333333-22.50666668 50.24000001-50.24000001 50.24000001H209.81333332c-27.73333333 0-50.24000001-22.50666668-50.23999999-50.24000001v-50.24000001c0-27.73333333 22.50666668-50.13333334 50.24000001-50.13333333zM692.05333333 623.36l274.66666669 176.00000002c23.36000001 14.93333333 30.08 45.97333334 15.14666666 69.33333332L954.77333334 910.93333333c-14.93333333 23.25333334-45.97333334 30.08-69.33333335 15.14666667l-274.66666666-176c-23.36000001-14.93333333-30.08-45.97333334-15.14666667-69.33333333l27.09333334-42.24000001c14.93333333-23.36000001 46.08000001-30.08 69.33333333-15.14666666z" fill="currentColor"></path>
+</svg>
+    <span>TOC</span>
+  </div>
+  <div class="widget-body">
+    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%A2-%E6%A6%82%E8%A7%88"><span class="toc-number">1.</span> <span class="toc-text">📢 概览</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%A2-%E5%88%A0%E9%99%A4%E9%A1%B9"><span class="toc-number">2.</span> <span class="toc-text">📢 删除项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%A2-%E6%B7%BB%E5%8A%A0%E9%A1%B9"><span class="toc-number">3.</span> <span class="toc-text">📢 添加项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%A2-%E4%B8%80%E4%BA%9B%E4%BD%BF%E7%94%A8%E5%8F%98%E5%8C%96"><span class="toc-number">4.</span> <span class="toc-text">📢 一些使用变化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#aplayer-amp-dplayer%E4%BD%BF%E7%94%A8%E5%8F%98%E5%8C%96"><span class="toc-number">4.1.</span> <span class="toc-text">aplayer&amp;dplayer使用变化:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#config-yml%E4%B8%AD%E7%95%99%E8%A8%80%E9%83%A8%E5%88%86%E5%8F%98%E5%8C%96"><span class="toc-number">4.2.</span> <span class="toc-text">_config.yml中留言部分变化:</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#social-icon-%E4%BF%AE%E6%94%B9"><span class="toc-number">4.3.</span> <span class="toc-text">social_icon 修改</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%A2-%E5%85%B6%E4%BB%96"><span class="toc-number">5.</span> <span class="toc-text">📢 其他</span></a></li></ol>
+  </div>
+</section>
+
+
+      
+<section class="widet-notice widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-notice" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M512 945.02305225v28.15620663a24.27259221 24.27259221 0 0 1-24.27259221 24.27259335H394.0352a48.54518557 48.54518557 0 0 1-41.74885888-23.78714112l-110.68302222-184.47170332a132.04290333 132.04290333 0 0 1-17.47626667-48.54518557h118.4502511a200.97706667 200.97706667 0 0 1 76.21594113 14.56355556l20.38897777 133.49925888a48.54518557 48.54518557 0 0 0 36.40888888 27.67075555l16.01991111 2.91271112a24.27259221 24.27259221 0 0 1 20.38897778 25.72894889zM997.45185223 463.45481443a194.18074112 194.18074112 0 0 1-38.8361489 116.50844445 24.75804445 24.75804445 0 0 1-36.4088889 0l-34.95253333-34.95253333a24.27259221 24.27259221 0 0 1-2.91271111-30.58346667 97.09036999 97.09036999 0 0 0 0-106.79940665 24.27259221 24.27259221 0 0 1 2.91271111-30.58346666l34.95253333-34.95253334a24.75804445 24.75804445 0 0 1 18.93262223-7.28177777 26.2144 26.2144 0 0 1 17.47626667 9.70903665A194.18074112 194.18074112 0 0 1 997.45185223 463.45481443z m-194.18074112-388.36148111v776.72296335a48.54518557 48.54518557 0 0 1-48.54518556 48.54518443h-28.64165888a48.54518557 48.54518557 0 0 1-33.98163001-14.07810332l-145.63555556-143.20829668A291.27111111 291.27111111 0 0 0 342.57730333 657.63555556H172.18370333a145.63555556 145.63555556 0 0 1-145.63555556-145.63555556v-97.09036999a145.63555556 145.63555556 0 0 1 145.63555556-145.63555556h170.3936a291.27111111 291.27111111 0 0 0 206.31703779-85.43952668l145.63555555-143.20829554a48.54518557 48.54518557 0 0 1 33.98162888-14.07810446H754.72592555a48.54518557 48.54518557 0 0 1 48.54518556 48.54518555z" fill="currentColor"></path>
+</svg>
+    <span>NOTICE</span>
+  </div>
+  <div class="widget-body">
+    <p>flex-block主题部分重构，详情查看https://github.com/miiiku/flex-block</p>
+  </div>
+</section>
+
+
+      <section class="widget-categorys widget-item layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-categories" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M900.3614811 257.09082106h-339.81629553l-67.96326003-101.9448889c-19.41807444-29.12711113-48.54518557-43.69066667-82.52681443-43.69066667H123.6385189c-53.39970333 0-97.09036999 43.69066667-97.09037113 97.09036999v582.54222222c0 53.39970333 43.69066667 97.09036999 97.09037113 97.09037002h776.7229622c53.39970333 0 97.09036999-43.69066667 97.09037113-97.09037002V354.18119104c0-53.39970333-43.69066667-97.09036999-97.09037113-97.09036998z m-97.09036999 242.72592554H220.72888889c-24.27259221 0-48.54518557-24.27259221-48.54518556-48.54518556s24.27259221-48.54518557 48.54518556-48.54518444h582.54222222c24.27259221 0 48.54518557 24.27259221 48.54518556 48.54518444s-24.27259221 48.54518557-48.54518556 48.54518556z" fill="currentColor"></path>
+</svg>
+    <span>CATEGORYS</span>
+  </div>
+  <div class="widget-body">
+    <ul class="categorys-list">
+      
+        <li class="categorys-list-item">
+          <a href="../../categories/doc/index.htm" tppabs="https://kyori.xyz/categories/doc/">
+            doc (4)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="../../categories/Foo/index.htm" tppabs="https://kyori.xyz/categories/Foo/">
+            Foo (1)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="../../categories/Foo/Bar/index.htm" tppabs="https://kyori.xyz/categories/Foo/Bar/">
+            Bar (1)
+          </a>
+        </li>
+      
+        <li class="categorys-list-item">
+          <a href="../../categories/Foo/Bar/Baz/index.htm" tppabs="https://kyori.xyz/categories/Foo/Bar/Baz/">
+            Baz (1)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+</section>
+
+      <section class="widget-tags widget-item  layout-margin content-padding--primary soft-size--large soft-style--box">
+  <div class="widget-title">
+    <svg class="icon icon-tags" viewBox="0 0 1098 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M283.42180005 272q0-28.38857157-20.09142843-48.48000001t-48.47999998-20.09142842-48.48000002 20.09142842-20.09142846 48.48000001 20.09142846 48.48 48.48000002 20.09142843 48.47999998-20.09142843 20.09142843-48.48zM855.0332285 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.03999997 263.58857157q-20.9142853 19.81714313-48.75428534 19.81714312-28.38857157 0-48.20571468-19.81714312l-383.04-383.58857157q-20.36571468-19.81714313-34.55999999-54.10285688t-14.19428534-62.6742853l0-222.85714313q0-27.84000002 20.36571469-48.20571469t48.2057147-20.36571466l222.85714313 0q28.38857157 0 62.6742853 14.19428529t54.65142842 34.55999999l383.04000001 382.49142843q19.81714313 20.9142853 19.81714314 48.75428532zM1060.74751475 580.57142843q0 28.38857157-19.81714313 48.2057147l-263.04 263.58857157q-20.9142853 19.81714313-48.75428531 19.81714312-19.26857155 0-31.61142843-7.47428531t-28.38857159-24.13714314l251.79428534-251.7942853q19.81714313-19.81714313 19.81714308-48.20571469 0-27.84000002-19.81714308-48.75428531l-383.04000001-382.49142845q-20.36571468-20.36571468-54.65142842-34.55999999t-62.67428532-14.19428534l120 0q28.38857157 0 62.67428532 14.19428534t54.65142842 34.55999999l383.03999998 382.49142845q19.81714313 20.9142853 19.81714314 48.75428531z" fill="currentColor"></path>
+</svg>
+    <span>TAGS</span>
+  </div>
+  <div class="widget-body">
+    <div class="tags-cloud">
+      <a href="../../tags/Bar/index.htm" tppabs="https://kyori.xyz/tags/Bar/" style="font-size: 15px;" class="tags-cloud-5">Bar</a> <a href="../../tags/Baz/index.htm" tppabs="https://kyori.xyz/tags/Baz/" style="font-size: 10px;" class="tags-cloud-0">Baz</a> <a href="../../tags/Foo/index.htm" tppabs="https://kyori.xyz/tags/Foo/" style="font-size: 15px;" class="tags-cloud-5">Foo</a> <a href="../../tags/doc/index.htm" tppabs="https://kyori.xyz/tags/doc/" style="font-size: 20px;" class="tags-cloud-10">doc</a> <a href="../../tags/flex-block/index.htm" tppabs="https://kyori.xyz/tags/flex-block/" style="font-size: 20px;" class="tags-cloud-10">flex-block</a>
+    </div>
+  </div>
+</section>
+    </div>
+  </article>
+</div>
+
+    <!-- footer container -->
+<footer id="footer" class="footer">
+  <div class="footer-container">
+    
+    <div class="social-icons">
+      
+        
+      
+        
+      
+        
+      
+        
+          <a href="javascript:if(confirm('https://github.com/miiiku/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ������·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ�����?'))window.location='https://github.com/miiiku/'" tppabs="https://github.com/miiiku/" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-github" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M64.6 512c0 195.6 125.4 361.9 300.1 422.9 23.5 5.9 19.9-10.8 19.9-22.2v-77.6c-135.8 15.9-141.3-74-150.5-89-18.5-31.5-61.9-39.5-49-54.5 31-15.9 62.5 4 98.9 58 26.4 39.1 77.9 32.5 104.1 26 5.7-23.5 17.9-44.5 34.7-60.9-140.7-25.2-199.4-111.1-199.4-213.3 0-49.5 16.4-95.1 48.4-131.8-20.4-60.6 1.9-112.4 4.9-120.1 58.2-5.2 118.5 41.6 123.3 45.3 33.1-8.9 70.8-13.7 112.9-13.7 42.4 0 80.3 4.9 113.5 13.9 11.3-8.6 67.3-48.8 121.4-43.9 2.9 7.7 24.7 58.3 5.5 118.1 32.5 36.8 49 82.8 49 132.4 0 102.3-59 188.3-200.2 213.2 23.5 23.3 38.1 55.5 38.1 91.1v112.7c0.8 9 0 17.9 15.1 17.9C832.7 877 960.4 709.4 960.4 512.1c0-247.5-200.6-447.9-447.9-447.9C265 64.1 64.6 264.5 64.6 512z"></path>
+</svg>
+          </a>
+        
+      
+        
+          <a href="javascript:if(confirm('https://twitter.com/guanquanhong  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ������·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ�����?'))window.location='https://twitter.com/guanquanhong'" tppabs="https://twitter.com/guanquanhong" class="soft-size--primary soft-style--box" target="_blank" rel="noopener noreferrer">
+            <svg class="icon icon-twitter" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+  <path d="M962.285714 233.142857q-38.285714 56-92.571429 95.428571 0.571429 8 0.571429 24 0 74.285714-21.714286 148.285714t-66 142-105.428571 120.285714-147.428571 83.428571-184.571429 31.142857q-154.857143 0-283.428571-82.857143 20 2.285714 44.571429 2.285714 128.571429 0 229.142857-78.857143-60-1.142857-107.428571-36.857143t-65.142857-91.142857q18.857143 2.857143 34.857143 2.857143 24.571429 0 48.571429-6.285714-64-13.142857-106-63.714286t-42-117.428571l0-2.285714q38.857143 21.714286 83.428571 23.428571-37.714286-25.142857-60-65.714286t-22.285714-88q0-50.285714 25.142857-93.142857 69.142857 85.142857 168.285714 136.285714t212.285714 56.857143q-4.571429-21.714286-4.571429-42.285714 0-76.571429 54-130.571429t130.571429-54q80 0 134.857143 58.285714 62.285714-12 117.142857-44.571429-21.142857 65.714286-81.142857 101.714286 53.142857-5.714286 106.285714-28.571429z"></path>
+</svg>
+          </a>
+        
+      
+    </div>
+     
+    <p>&copy; 2021 <a href="../../index.htm" tppabs="https://kyori.xyz/" target="_blank">redcnhack</a></p>
+
+    
+
+    <p>Powered by <a href="javascript:if(confirm('https://hexo.io/  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ������·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ�����?'))window.location='https://hexo.io/'" tppabs="https://hexo.io/" target="_blank" rel="noopener noreferrer">Hexo</a> Theme - <a href="javascript:if(confirm('https://github.com/miiiku/flex-block  \n\n���ļ��޷��� Teleport Ultra ����, ��Ϊ ����һ������·���ⲿ������Ϊ������ʼ��ַ�ĵ�ַ��  \n\n�����ڷ������ϴ�����?'))window.location='https://github.com/miiiku/flex-block'" tppabs="https://github.com/miiiku/flex-block" target="_blank" rel="noopener noreferrer author">flex-block</a></p>
+
+    <p>
+      <a href="javascript:;" id="theme-light">🌞 浅色</a>
+      <a href="javascript:;" id="theme-dark">🌛 深色</a>
+      <a href="javascript:;" id="theme-auto">🤖️ 自动</a>
+    </p>
+  </div>
+</footer>
+  </div>
+
+  <div class="back-to-top-fixed soft-size--round soft-style--box">
+    <svg class="icon icon-back-to-top" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg">
+      <path d="M725.333333 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8l-213.333333-213.333333c-17.066667-17.066667-17.066667-42.666667 0-59.733333s42.666667-17.066667 59.733333 0l213.333333 213.333333c17.066667 17.066667 17.066667 42.666667 0 59.733333C746.666667 422.4 738.133333 426.666667 725.333333 426.666667z"></path>
+      <path d="M298.666667 426.666667c-12.8 0-21.333333-4.266667-29.866667-12.8-17.066667-17.066667-17.066667-42.666667 0-59.733333l213.333333-213.333333c17.066667-17.066667 42.666667-17.066667 59.733333 0s17.066667 42.666667 0 59.733333l-213.333333 213.333333C320 422.4 311.466667 426.666667 298.666667 426.666667z"></path>
+      <path d="M512 896c-25.6 0-42.666667-17.066667-42.666667-42.666667L469.333333 170.666667c0-25.6 17.066667-42.666667 42.666667-42.666667s42.666667 17.066667 42.666667 42.666667l0 682.666667C554.666667 878.933333 537.6 896 512 896z"></path>
+    </svg>
+  </div>
+
+  
+  <!-- aplayer -->
+
+
+<!-- dplayer -->
+
+
+
+
+  
+
+
+  <!-- Google Analytics START -->
+  <script type="text/javascript">
+    (function() {
+      if (window.location.hostname === "localhost" || window.location.hostname.startsWith("https://kyori.xyz/2021/07/192.168")) {
+        return console.log("本地调试");
+      }
+
+      window.dataLayer = window.dataLayer || [];
+      
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+
+      let script = document.createElement("script")
+
+      script.onload = function() {
+        gtag('js', new Date());
+        gtag('config', "G-JJT9RKGCWJ");
+      }
+
+      script.src = "../../../www.googletagmanager.com/gtag/js-id=G-JJT9RKGCWJ"/*tpa=https://www.googletagmanager.com/gtag/js?id=G-JJT9RKGCWJ*/
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(script, s);
+    })()
+  </script>
+  <!-- Google Analytics End -->
+
+  
+
+
+  <!-- Baidu Analytics START -->
+  <script>
+    var _hmt = _hmt || [];
+    (function () {
+      if (window.location.hostname === "localhost" || window.location.hostname.startsWith("https://kyori.xyz/2021/07/192.168")) {
+        return console.log("本地调试");
+      }
+      var hm = document.createElement("script");
+      hm.src = "../../../hm.baidu.com/hm.js-c002d517ed91c82c91e4ee4ccdd7ca29"/*tpa=https://hm.baidu.com/hm.js?c002d517ed91c82c91e4ee4ccdd7ca29*/;
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+  <!-- Baidu Analytics End -->
+
+  
+
+
+
+
+<script src="../../js/script.js" tppabs="https://kyori.xyz/js/script.js"></script>
+
+
+  
+  <!-- 尾部用户自定义相关内容 -->
+</body>
+</html>
